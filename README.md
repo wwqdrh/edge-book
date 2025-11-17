@@ -4,7 +4,7 @@
 
 ## 代码示例
 
-- [酒店系统后台完整项目](https://github.com/wwqdrh/localserver/tree/hotel)
+- [酒店系统后台完整项目](https://github.com/wwqdrh/edge-book/tree/hotel)
 
 ## 联系
 
