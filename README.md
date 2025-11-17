@@ -1,7 +1,11 @@
-# edge-docs
+# edge-book
 
-the serverless backend framework tutorial
+后端服务低代码框架开发文档
 
-## content
+## 代码示例
 
-[目录](./src/SUMMARY.md)
+- [酒店系统后台完整项目](https://github.com/wwqdrh/localserver/tree/hotel)
+
+## 联系
+
+huiloademail@163.com
