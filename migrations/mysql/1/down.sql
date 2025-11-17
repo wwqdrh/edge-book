@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS users;
+
+DROP TABLE IF EXISTS admins;
+
+DROP TABLE IF EXISTS orders;
+
+DROP TABLE IF EXISTS rooms;
+
+DROP TABLE IF EXISTS room_type;
+
+DROP TABLE IF EXISTS room_feature;
+
+DROP TABLE IF EXISTS booking;
+
+DROP TABLE IF EXISTS sys_info;
+
+DROP TABLE IF EXISTS coupon_definition;
+
+DROP TABLE IF EXISTS coupon_instance;

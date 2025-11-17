@@ -1,0 +1,53 @@
+base:
+  name: wanshouhotel
+  port: 8000
+  envfile: "./.env"
+  noextra: true
+  extra: "pnpm run dev"
+  api:
+    prefix: /api
+    path: ./api
+    funcs: ./funcs
+preservice:
+  admin:
+    system: true
+modules:
+  pay:
+    wx_mchid: "{{.wx_mchid}}"
+    wx_appid: "{{.wx_appid}}"
+    wx_serialno: "{{.wx_serialno}}"
+    wx_apikey_v3: "{{.wx_apikey_v3}}"
+    wx_publicfile: "{{.wx_publicfile}}"
+    wx_privatefile: "{{.wx_privatefile}}"
+middlewares:
+  - id: jwt
+    type: jwt
+    opts:
+      algo: "RS256"
+      publicFile: ./assets/jwt_public.pem
+      privateFile: ./assets/jwt_private.pem
+      lookup: cookie:wanshouhotelt,header:wanshouhotelt
+      timeout: 120
+  - id: jwt_admin
+    type: jwt
+    opts:
+      algo: "RS256"
+      publicFile: ./assets/jwt_public.pem
+      privateFile: ./assets/jwt_private.pem
+      lookup: cookie:wanshouhotelt2,header:wanshouhotelt2
+      timeout: 120
+db:
+  - id: base
+    env: dev
+    driver: sqlite
+    dsn: ./db/data.db
+    migrate: "./migrations/sqlite3"
+    version: "1"
+    autoapi: false
+  - id: base
+    env: prod
+    driver: mysql
+    dsn: "user={{.EDGE_DB_USER}} pass={{.EDGE_DB_PASS}} host={{.EDGE_DB_HOST}} port={{.EDGE_DB_PORT}} db=hotel"
+    migrate: "./migrations/mysql"
+    version: "1"
+    autoapi: false
