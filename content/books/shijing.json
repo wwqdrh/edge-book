@@ -1,0 +1,99 @@
+{
+  "book_id": "shijing",
+  "title": "诗经",
+  "alternative_titles": ["诗", "诗三百", "三百篇"],
+  "metadata": {
+    "total_sections": 3,
+    "total_chapters": 305,
+    "total_poems": 311,
+    "period": "西周至春秋",
+    "compilation_era": "春秋时期",
+    "compiler": "孔子（传）"
+  },
+  
+  "structure": {
+    "sections": [
+      {
+        "section_id": "feng",
+        "title": "风",
+        "description": "地方民歌，十五国风",
+        "chapter_count": 15,
+        "poem_count": 160,
+        "chapters": [
+          {
+            "chapter_id": "zhounan",
+            "title": "周南",
+            "poem_count": 11,
+            "start_poem": 1,
+            "end_poem": 11
+          },
+          {
+            "chapter_id": "shaonan",
+            "title": "召南",
+            "poem_count": 14,
+            "start_poem": 12,
+            "end_poem": 25
+          }
+        ]
+      },
+      {
+        "section_id": "ya",
+        "title": "雅",
+        "description": "宫廷乐歌",
+        "chapter_count": 2,
+        "poem_count": 105,
+        "chapters": [
+          {
+            "chapter_id": "xiaoya",
+            "title": "小雅",
+            "subtitle": "",
+            "poem_count": 74,
+            "has_shengshi": true,
+            "shengshi_count": 6
+          },
+          {
+            "chapter_id": "daya",
+            "title": "大雅",
+            "poem_count": 31
+          }
+        ]
+      },
+      {
+        "section_id": "song",
+        "title": "颂",
+        "description": "宗庙祭祀乐歌",
+        "chapter_count": 3,
+        "poem_count": 40,
+        "chapters": [
+          {
+            "chapter_id": "zhousong",
+            "title": "周颂",
+            "poem_count": 31
+          },
+          {
+            "chapter_id": "lusong",
+            "title": "鲁颂",
+            "poem_count": 4
+          },
+          {
+            "chapter_id": "shangsong",
+            "title": "商颂",
+            "poem_count": 5
+          }
+        ]
+      }
+    ]
+  },
+  
+  "navigation": {
+    "by_section": {
+      "feng": ["zhounan", "shaonan", "beifeng"],
+      "ya": ["xiaoya", "daya"],
+      "song": ["zhousong", "lusong", "shangsong"]
+    },
+    "by_poem_number": {
+      "1": {"section": "feng", "chapter": "zhounan", "poem": "guanju"},
+      "2": {"section": "feng", "chapter": "zhounan", "poem": "gejin"}
+    }
+  }
+}

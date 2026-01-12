@@ -1,0 +1,57 @@
+{
+  "poem_id": "guanju",
+  "number": 1,
+  "title": "关雎",
+  "alternative_titles": ["关雎"],
+  "section": "feng",
+  "chapter": "zhounan",
+  "chapter_title": "周南",
+  "interpretations": {
+    "maoshi": {
+      "school": "毛诗",
+      "summary": "《关雎》，后妃之德也，风之始也，所以风天下而正夫妇也。",
+      "detailed": "《关雎》乐得淑女，以配君子，忧在进贤，不淫其色；哀窈窕，思贤才，而无伤善之心焉。是《关雎》之义也。"
+    },
+    "modern": {
+      "school": "现代解读",
+      "summary": "这是一首描写男子追求女子的爱情诗。",
+      "detailed": "通过雎鸠和鸣起兴，表达了男子对美丽贤淑女子的爱慕和追求..."
+    }
+  },
+  "content": {
+    "original": [
+      "关关雎鸠，在河之洲。",
+      "窈窕淑女，君子好逑。",
+      "参差荇菜，左右流之。",
+      "窈窕淑女，寤寐求之。"
+    ],
+    "annotations": [
+        {
+          "character": "关关",
+          "annotation": "鸟和鸣声。雎鸠，水鸟名，即鱼鹰。"
+        },
+        {
+          "character": "雎鸠",
+          "annotation": "王雎，鸟名。相传此鸟情意专一。"
+        },
+        {
+          "character": "窈窕",
+          "annotation": "美好文静的样子。"
+        },
+        {
+          "character": "淑女",
+          "annotation": "贤良美好的女子。"
+        }
+    ]
+  },
+  "notes": {
+    "themes": ["爱情", "婚姻", "追求"],
+    "rhetoric": ["起兴", "反复", "叠字"],
+    "cultural_context": "古代婚礼习俗，琴瑟钟鼓为婚礼乐器"
+  },
+  "appreciation": "采用起兴手法，语言优美，音韵和谐。《诗经》首篇，具有重要文学史地位。对后世爱情诗创作产生深远影响",
+  "related": {
+    "allusions": ["雎鸠之德", "琴瑟和鸣"],
+    "similar_poems": ["shijing-2", "shijing-3"]
+  }
+}
