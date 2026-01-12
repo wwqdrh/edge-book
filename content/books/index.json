@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "id": "0001",
+      "title": "论语",
+      "author_names": ["孔子"],
+      "dynasty": "先秦",
+      "category": "经部",
+      "brief": "儒家经典，记载孔子及其弟子言行",
+      "cover_image": "/covers/0001.jpg",
+      "popularity": 95,
+      "last_updated": "2024-01-15"
+    }
+  ],
+  "indices": {
+    "by_dynasty": {
+      "pre_qin": ["0001", "0002", "0003"],
+      "han": ["0004", "0005"]
+    },
+    "by_category": {
+      "jing": ["0001", "0002"],
+      "shi": ["0004", "0005"]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "authors": [
+    {
+      "id": "kongzi",
+      "name": "孔子",
+      "dynasty_id": "pre_qin",
+      "lifespan": "公元前551年-公元前479年",
+      "courtesy_name": "仲尼",
+      "biography": "孔子，名丘，字仲尼...",
+      "works_count": 5,
+      "portrait_url": "/images/authors/kongzi.jpg"
+    }
+  ]
+}

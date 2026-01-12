@@ -1,0 +1,21 @@
+{
+  "categories": [
+    {
+      "id": "jing",
+      "name": "经部",
+      "description": "儒家经典及其注释",
+      "subcategories": [
+        {
+          "id": "yijing",
+          "name": "易类",
+          "description": "易经及相关著作"
+        },
+        {
+          "id": "shijing",
+          "name": "诗类",
+          "description": "诗经及相关著作"
+        }
+      ]
+    }
+  ]
+}

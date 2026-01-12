@@ -1,0 +1,18 @@
+{
+  "dynasties": [
+    {
+      "id": "pre_qin",
+      "name": "先秦",
+      "period": "公元前2070年-公元前221年",
+      "description": "包括夏、商、周及春秋战国时期",
+      "sort_order": 1
+    },
+    {
+      "id": "han",
+      "name": "汉代",
+      "period": "公元前202年-公元220年",
+      "description": "包括西汉、东汉",
+      "sort_order": 2
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "0001",
+  "title": "论语",
+  "subtitle": "",
+  "original_title": "論語",
+  "author_ids": ["kongzi"],
+  "compiler_ids": [], 
+  "annotator_ids": [], 
+  "dynasty_id": "pre_qin",
+  "category_id": "jing",
+  "subcategory_id": "lunyu",
+  "collection_id": "sishu", 
+  
+  "metadata": {
+    "chapters_count": 20,
+    "sections_count": 492,
+    "word_count": 15900,
+    "writing_era": "战国初期",
+    "language_style": "文言文"
+  },
+  
+  "versions": [
+    {
+      "id": "sskqs",
+      "name": "四部丛刊本",
+      "publisher": "商务印书馆",
+      "year": "1929年",
+      "base_version": true
+    }
+  ],
+  
+  "content_structure": [
+    {
+      "volume": 1,
+      "title": "学而篇第一",
+      "sections": [
+        {
+          "section": 1,
+          "content": "子曰：「学而时习之，不亦说乎？...」",
+          "original_text": "子曰：「學而時習之，不亦說乎？...」",
+          "translation": "孔子说：『学习了然后时常温习...』",
+          "notes": [
+            {
+              "type": "annotation",
+              "author": "朱熹",
+              "content": "此为开篇第一句..."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  
+  "related_resources": {
+    "annotations": ["zhu_xi_lunyu"],
+    "studies": ["lunyu_yishu"],
+    "related_books": ["0002", "0003"]
+  },
+  
+  "files": {
+    "pdf_url": "/files/books/0001.pdf",
+    "epub_url": "/files/books/0001.epub",
+    "images": [
+      {
+        "page": 1,
+        "url": "/images/books/0001/page-001.jpg",
+        "description": "明刻本首页"
+      }
+    ]
+  },
+  
+  "stats": {
+    "views": 1520,
+    "bookmarks": 89,
+    "annotations_count": 23
+  }
+}

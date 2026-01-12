@@ -1,0 +1,25 @@
+{
+  "annotations": [
+    {
+      "id": "zhu_xi_lunyu",
+      "book_id": "0001",
+      "title": "论语集注",
+      "author_id": "zhuxi",
+      "dynasty_id": "song",
+      "content": {
+        "structure": "按原文章节对应注解",
+        "sections": [
+          {
+            "book_section": "1.1",
+            "annotation": "此为开篇第一句...",
+            "commentary": "朱熹对此句的深入解读..."
+          }
+        ]
+      },
+      "version_info": {
+        "edition": "宋刻本",
+        "source": "国家图书馆藏"
+      }
+    }
+  ]
+}
