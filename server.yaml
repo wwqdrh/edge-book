@@ -1,0 +1,32 @@
+base:
+  name: chinese-literary
+  port: 8000
+  envfile: "./.env"
+  api:
+    prefix: /api
+    path: ./api
+    funcs: ./funcs
+middlewares:
+  - id: jwt
+    type: jwt
+    opts:
+      algo: "RS256"
+      publicFile: ./assets/jwt_public.pem
+      privateFile: ./assets/jwt_private.pem
+      lookup: cookie:chinese-literary,header:chinese-literary
+      timeout: 120
+db:
+  - id: base
+    env: dev
+    driver: sqlite
+    dsn: ./db/data.db
+    migrate: "./migrations/sqlite3"
+    version: "1"
+    autoapi: false
+  - id: base
+    env: prod
+    driver: mysql
+    dsn: "user={{.EDGE_DB_USER}} pass={{.EDGE_DB_PASS}} host={{.EDGE_DB_HOST}} port={{.EDGE_DB_PORT}} db=hotel"
+    migrate: "./migrations/mysql"
+    version: "1"
+    autoapi: false

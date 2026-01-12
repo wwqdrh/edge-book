@@ -9,3 +9,5 @@
 ## 联系
 
 huiloademail@163.com
+
+EDGE_ENCRYPT_KEY

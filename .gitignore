@@ -1,6 +1,10 @@
 build
 cache
+.env
 .DS_Store
+assets/jwt_private.pem
+assets/jwt_public.pem
+db
 .cache
 out
 .vscode
