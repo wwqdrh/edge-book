@@ -1,0 +1,5 @@
+# 测试优惠券相关函数的步骤
+- url: /api/ping
+  method: get
+  expect:
+    json=@msg: pong
