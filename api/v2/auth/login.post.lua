@@ -7,25 +7,23 @@
 local user_phone = ctx.req("phone")
 local user_data = state.orm()
     .table({"users"})
-    .select({
-        "users.*"
-    })
     .where({
-        "phone = ?", ctx.req("phone"),
-        "password = ?", "[[password]]" .. ctx.req("password")
+        "phone = ?", user_phone
     })
+    .find({})
     .exec("base", false)
 if user_data.err ~= nil then
     ctx.json(400, {msg="用户登录失败"})
     return
 end
 
+local user = user_data.res[1]
 local tokenData, err = ctx.middleware("jwt", "token", {
     user={
-        id=user_data.res.id,
-        username=user_data.res.name,
+        id=user.id,
+        username=user.name,
         isadmin=false,
-        phone=user_data.res.phone
+        phone=user.phone
     }
 })
 

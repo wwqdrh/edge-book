@@ -2,7 +2,6 @@
 -- middlewares=jwt
 
 local userInfo = ctx.middleware("jwt", "info").user
-
 local res = state.orm()
     .table({"coupon_instance"})
     .select({
@@ -24,6 +23,4 @@ if res.err ~= nil then
     return
 end
 
-ctx.json(200, {
-    data=res.res
-})
+ctx.json(200, res.res)

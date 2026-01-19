@@ -14,7 +14,7 @@
 - url: /api/v2/auth/login
   method: post
   args:
-    json@name: testuser
+    json@phone: "14348247597"
     json@password: "123456"
   expect:
     json=@msg: 登录成功
