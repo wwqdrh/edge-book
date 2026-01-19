@@ -3,3 +3,26 @@
   method: get
   expect:
     json=@msg: pong
+- url: /api/v2/auth/user
+  method: post
+  args:
+    json@name: testuser
+    json@phone: "14348247597"
+    json@password: "123456"
+  expect:
+    json=@msg: 新增用户成功
+- url: /api/v2/auth/login
+  method: post
+  args:
+    json@name: testuser
+    json@password: "123456"
+  expect:
+    json=@msg: 登录成功
+  action:
+    json@accessToken: senv@token
+- url: /api/v2/coupon/list
+  method: get
+  args:
+    header@wanshouhotelt: genv@token
+  expect:
+    json@length: 0

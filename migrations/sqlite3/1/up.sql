@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT UNIQUE NOT NULL,
     phone TEXT UNIQUE NOT NULL,
+    password TEXT,
     join_time TIMESTAMP DEFAULT (datetime('now', '+8 hours'))
 );
 
@@ -12,6 +13,7 @@ CREATE TABLE IF NOT EXISTS admins (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT UNIQUE NOT NULL,
     phone TEXT UNIQUE NOT NULL,
+    password TEXT,
     role INTEGER DEFAULT 0,
     created_at TIMESTAMP DEFAULT (datetime('now', '+8 hours'))
 );
