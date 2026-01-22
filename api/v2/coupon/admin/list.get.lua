@@ -1,5 +1,5 @@
 -- description=优惠券列表
--- middlewares=jwt_admin@match,role,10
+-- middlewares=jwt@match,role,1|2
 
 
 local res = state.orm()

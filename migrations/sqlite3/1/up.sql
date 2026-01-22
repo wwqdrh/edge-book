@@ -1,21 +1,12 @@
 -- Users table
+-- 0 plain 1 admin 2 superadmin
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT UNIQUE NOT NULL,
     phone TEXT UNIQUE NOT NULL,
     password TEXT,
-    join_time TIMESTAMP DEFAULT (datetime('now', '+8 hours'))
-);
-
--- Admins table
--- role 0 plain 1 admin 2 superadmin
-CREATE TABLE IF NOT EXISTS admins (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT UNIQUE NOT NULL,
-    phone TEXT UNIQUE NOT NULL,
-    password TEXT,
     role INTEGER DEFAULT 0,
-    created_at TIMESTAMP DEFAULT (datetime('now', '+8 hours'))
+    join_time TIMESTAMP DEFAULT (datetime('now', '+8 hours'))
 );
 
 -- Orders table
@@ -122,10 +113,13 @@ INSERT INTO sys_info (name, value) VALUES
 ('contact', '17323799333'),
 ('worktime', '周一至周日 9:00-21:00');
 
-INSERT INTO admins (name, phone, role) VALUES
-('jianguo', '13817914965', 10);
-INSERT INTO admins (name, phone, role) VALUES
-('wwqdrh', '15348247596', 10);
+INSERT INTO users (name, phone, role) VALUES
+('jianguo', '13817914965', 1),
+('wwqdrh', '15348247596', 2);
+
+INSERT INTO coupon_definition (name, discount_type, discount_value) VALUES
+('95折优惠券', 0, 95),
+('10消费券', 1, 10);
 
 INSERT INTO room_type (name) VALUES
 ('大床房'),

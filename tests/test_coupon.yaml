@@ -3,6 +3,23 @@
   method: get
   expect:
     json=@msg: pong
+- url: /api/v2/auth/password
+  method: post
+  args:
+    json@phone: "15348247596"
+    json@password: "991028"
+    json@code: "bd280dc9def725507c62736e15665166b63cc3de0d02092aafba93558c06a3a6"
+  expect:
+    json=@msg: 修改用户密码成功
+- url: /api/v2/auth/login
+  method: post
+  args:
+    json@phone: "15348247596"
+    json@password: "991028"
+  expect:
+    json=@msg: 登录成功
+  action:
+    json@accessToken: senv@admin_token
 - url: /api/v2/auth/user
   method: post
   args:
@@ -26,3 +43,9 @@
     header@wanshouhotelt: genv@token
   expect:
     json@length: 0
+- url: /api/v2/coupon/admin/list
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+  expect:
+    json@length@data: 2
