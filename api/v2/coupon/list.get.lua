@@ -23,4 +23,6 @@ if res.err ~= nil then
     return
 end
 
-ctx.json(200, res.res)
+ctx.json(200, {
+    data=res.res
+})

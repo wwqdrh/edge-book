@@ -3,9 +3,9 @@
 --   {"name": "json@coupon_id", "type": "int", "required": true},
 --   {"name": "json@phone", "type": "string", "required": true},
 --   {"name": "json@times", "type": "int", "required": true},
---   {"name": "json@period", "type": "datetime", "required": true}
+--   {"name": "json@period_day", "type": "int", "required": true}
 -- ]
--- middlewares=jwt_admin@match,role,10
+-- middlewares=jwt@match,role,1|2
 
 local res = state.orm()
     .table({"users"})
@@ -26,7 +26,7 @@ local res = state.orm()
             coupon_id=ctx.req("coupon_id"),
             user_id=user_id,
             validaty_times=ctx.req("times"),
-            validity_period=ctx.req("period")
+            validity_period="[[datetime]]" .. osx.time_after_days(ctx.req("period_day"))
         }
     })
     .exec("base", false)
