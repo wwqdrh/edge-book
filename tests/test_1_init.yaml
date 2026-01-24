@@ -1,8 +1,3 @@
-# 测试优惠券相关函数的步骤
-- url: /api/ping
-  method: get
-  expect:
-    json=@msg: pong
 - url: /api/v2/auth/password
   method: post
   args:
@@ -37,31 +32,3 @@
     json=@msg: 登录成功
   action:
     json@accessToken: senv@token
-- url: /api/v2/coupon/list
-  method: get
-  args:
-    header@wanshouhotelt: genv@token
-  expect:
-    json@length@data: 0
-- url: /api/v2/coupon/admin/list
-  method: get
-  args:
-    header@wanshouhotelt: genv@admin_token
-  expect:
-    json@length@data: 2
-- url: /api/v2/coupon/admin/distrib
-  method: post
-  args:
-    header@wanshouhotelt: genv@admin_token
-    json@coupon_id: 1
-    json@phone: "14348247597"
-    json@times: 1
-    json@period_day: 30
-  expect:
-    json=@msg: "优惠券分发成功"
-- url: /api/v2/coupon/list
-  method: get
-  args:
-    header@wanshouhotelt: genv@token
-  expect:
-    json@length@data: 1

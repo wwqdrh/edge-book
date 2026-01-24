@@ -1,0 +1,59 @@
+- url: /api/v2/rooms/admin/add
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@name: "101"
+    json@door_number: "101"
+    json@price: 19900
+    json@status: 0
+    json@description: "房间1"
+    json@features: "1,2"
+    json@amentities: "4,5,6"
+    json@cover_image: "coverimg"
+    json@slider_images:
+      - img1
+      - img2
+    json@area: 50
+    json@type: 1
+    json@capacity: 2
+  expect:
+    json=@msg: 房间上架成功
+- url: /api/v2/rooms/admin/update
+  method: post
+  args:
+    header@wanshouhotelt: 1
+    json@id: genv@fist_room_id
+    json@description: 更新房间描述1
+  expect:
+    json=@msg: 房间信息修改成功
+- url: /api/v2/rooms/admin/all
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+  expect:
+    json@length@data: 1
+    json@length@data.0.slider_images: 2
+    json=@data.0.description: 更新房间描述1
+  action:
+    json@data.0.id: senv@fist_room_id
+- url: /api/v2/rooms/admin/sellin
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@id: genv@fist_room_id
+  expect:
+    json=@msg: 房间上架成功
+- url: /api/v2/rooms/admin/sellout
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@id: genv@fist_room_id
+  expect:
+    json=@msg: 房间下架成功
+- url: /api/v2/rooms/admin/delete
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@id: genv@fist_room_id
+  expect:
+    json=@msg: 房间删除成功
