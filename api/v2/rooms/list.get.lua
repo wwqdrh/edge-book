@@ -1,7 +1,7 @@
 -- description=获取房源列表，可以指定筛选条件进行查询，提供分页功能
 -- request=[
---   {"name": "query@start_date", "type": "date"},
---   {"name": "query@end_date", "type": "date"}
+--   {"name": "query@start_date", "type": "date", "required": true},
+--   {"name": "query@end_date", "type": "date", "required": true}
 -- ]
 
 if ctx.reqhas("start_date") and ctx.reqhas("end_date") then

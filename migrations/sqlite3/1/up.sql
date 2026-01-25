@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS orders (
     guest_desc TEXT NOT NULL DEFAULT '',
     night_times INTEGER NOT NULL,
     night_price INTEGER NOT NULL,
-    total_price INTEGER NOT NULL,
     verification_code TEXT KEY NOT NULL,
     verification_code_used INTEGER DEFAULT 0,
     status INTEGER DEFAULT 0,

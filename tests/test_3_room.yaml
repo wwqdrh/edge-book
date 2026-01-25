@@ -21,8 +21,8 @@
 - url: /api/v2/rooms/admin/update
   method: post
   args:
-    header@wanshouhotelt: 1
-    json@id: genv@fist_room_id
+    header@wanshouhotelt: genv@admin_token
+    json@id: 1
     json@description: 更新房间描述1
   expect:
     json=@msg: 房间信息修改成功
@@ -43,17 +43,46 @@
     json@id: genv@fist_room_id
   expect:
     json=@msg: 房间上架成功
-- url: /api/v2/rooms/admin/sellout
+- url: /api/v2/rooms/admin/info/allamenities
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+  expect:
+    json@length@data: 9
+- url: /api/v2/rooms/admin/info/allfeature
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+  expect:
+    json@length@data: 3
+# 测试房间类型的增删改查
+- url: /api/v2/rooms/admin/type/roomcount
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+    query@typeid: 1
+  expect:
+    json@length@data: 1
+- url: /api/v2/rooms/admin/type/add
   method: post
   args:
     header@wanshouhotelt: genv@admin_token
-    json@id: genv@fist_room_id
+    json@name: 扩展房间类型1
   expect:
-    json=@msg: 房间下架成功
-- url: /api/v2/rooms/admin/delete
+    json=@msg: 房间类型添加成功
+- url: /api/v2/rooms/admin/type/delete
   method: post
   args:
     header@wanshouhotelt: genv@admin_token
-    json@id: genv@fist_room_id
+    json@name: 扩展房间类型1
   expect:
-    json=@msg: 房间删除成功
+    json=@msg: 房间类型删除成功
+# 测试房间预定筛选功能，如果一个房间在某个时间段中被预定了
+# 那么当用户查询空闲时间房间时将不会显示这个房间
+- url: /api/v2/rooms/list
+  method: get
+  args:
+    query@start_date: 2026-01-25
+    query@end_date: 2026-01-28
+  expect:
+    json@length@data: 1

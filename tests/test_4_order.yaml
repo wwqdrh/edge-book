@@ -1,0 +1,13 @@
+- url: /api/v2/orders/create
+  method: post
+  args:
+    header@wanshouhotelt: genv@token
+    json@roomid: 1
+    json@check_in_date: 2026-01-25
+    json@check_out_date: 2026-01-28
+    json@guest_name: 联系人1
+    json@guest_phone: "13433455432"
+    json@guest_idcard: "52389013903123"
+    json@guest_desc: "订单备注"
+  expect:
+    json=@msg: 订单创建成功
