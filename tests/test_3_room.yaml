@@ -17,7 +17,7 @@
     json@type: 1
     json@capacity: 2
   expect:
-    json=@msg: 房间上架成功
+    json=@msg: 房间新增成功
 - url: /api/v2/rooms/admin/update
   method: post
   args:

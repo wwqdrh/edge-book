@@ -18,5 +18,30 @@
     query@status: 0
   expect:
     json@length@data: 1
+  action:
+    json@data.0.out_trade_no: senv@order_no
 # 模拟支付完成，后续查询订单状态时订单状态为1
 # 但是模拟环境没有接入微信支付环境相关，无法测试，也许后面可以考虑如何找个测试环境
+- url: /api/v2/orders/preorder
+  method: post
+  args:
+    header@wanshouhotelt: genv@token
+    json@openid: "123456"
+    json@out_trade_no: genv@order_no
+  expect:
+    json=@data.prepay_id: "test_pay_id"
+    json=@data.order_id: 1
+- url: /api/v2/orders/query_order
+  method: post
+  args:
+    header@wanshouhotelt: genv@token
+    json@orderid: 1
+  expect:
+    json=@msg: 支付成功
+- url: /api/v2/orders/list
+  method: get
+  args:
+    header@wanshouhotelt: genv@token
+    query@status: 1
+  expect:
+    json@length@data: 1

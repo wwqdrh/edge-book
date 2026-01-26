@@ -12,6 +12,7 @@ local res = state.orm()
         "orders.id id",
         "orders.check_in_date check_in_date",
         "orders.check_out_date check_out_date",
+        "orders.out_trade_no out_trade_no",
         "orders.status status",
         "orders.created_at created_at",
         "rooms.cover_image cover_image"

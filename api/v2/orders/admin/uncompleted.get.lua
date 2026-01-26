@@ -1,4 +1,4 @@
--- middlewares=jwt_admin@match,role,1|2|10
+-- middlewares=jwt@match,role,1|2|10
 
 local res = state.orm()
     .table({"orders"})

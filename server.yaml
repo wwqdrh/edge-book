@@ -13,6 +13,7 @@ preservice:
     system: true
 modules:
   pay:
+    is_test: true
     wx_mchid: "{{.wx_mchid}}"
     wx_appid: "{{.wx_appid}}"
     wx_serialno: "{{.wx_serialno}}"

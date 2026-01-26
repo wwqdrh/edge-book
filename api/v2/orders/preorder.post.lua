@@ -5,35 +5,41 @@
 -- ]
 -- middlewares=jwt
 
--- TODO: 现在支付是一分钱测试，需要根据out_trade_no获取订单原价
-
 local res = state.orm()
     .table({"orders"})
     .first({
-        "out_trade_no=?", ctx.req("out_trade_no")
+        {out_trade_no=ctx.req("out_trade_no")}
     })
-    .find({})
     .exec("base", false)
+
 if res.err ~= nil or next(res.res) == nil then
     ctx.json(400, {msg="订单不存在"})
     return
 end
 
-local total_price = res.res.total_price
-print(total_price)
+local order_data = res.res
+local total_price = order_data.night_times * order_data.night_price
+if order_data.discount_type == 1 then
+    total_price = total_price * order_data.discount_value / 100
+elseif order_data.discount_type == 2 then
+    total_price = total_price - order_data.discount_value
+end
 
 res, err = pay.wechat_jsapi_prepay({
     description="支付测试",
     out_trade_no=ctx.req("out_trade_no"),
     time_expire=osx.time_after_seconds(600, "RFC3339"),
     notify_url="https://www.weixin.qq.com/wxpay/pay.php",
-    amount=1,
+    amount=total_price,
     openid=ctx.req("openid")
 })
 if err ~= nil then
     ctx.json(500, {err=err})
     return
 end
+
+local data = json.decode(res)
+data["order_id"] = order_data.id
 ctx.json(200, {
-    data=json.decode(res)
+    data=data
 })
