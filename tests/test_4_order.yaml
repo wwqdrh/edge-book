@@ -11,3 +11,12 @@
     json@guest_desc: "订单备注"
   expect:
     json=@msg: 订单创建成功
+- url: /api/v2/orders/list
+  method: get
+  args:
+    header@wanshouhotelt: genv@token
+    query@status: 0
+  expect:
+    json@length@data: 1
+# 模拟支付完成，后续查询订单状态时订单状态为1
+# 但是模拟环境没有接入微信支付环境相关，无法测试，也许后面可以考虑如何找个测试环境

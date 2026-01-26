@@ -29,8 +29,13 @@ if res.res.status == 0 then
         order_type=2,
         order_no=res.res.out_trade_no
     })
-    print(osx.time_after_seconds(0))
-    print(res.res.expired_at)
+    if err ~= nil then
+        ctx.json(500, {
+            msg="支付失败",
+            detail=err
+        })
+        return
+    end
     if pay_status == "支付成功" then
         if funcs.call("payok", {orderid=ctx.req("id"), userid=userInfo.id}) == "true" then
             res.res.status = 1

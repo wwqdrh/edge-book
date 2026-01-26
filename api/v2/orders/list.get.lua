@@ -6,21 +6,12 @@
 
 local userInfo = ctx.middleware("jwt", "info").user
 
-local query_str = "orders.userid = ? AND orders.deleted_at IS NULL "
-local query_arg = {userInfo.id}
-
-if ctx.reqhas("status") then
-    query_str = query_str .. " AND orders.status = ? "
-    table.insert(query_arg, ctx.req("status"))
-end
-
 local res = state.orm()
     .table({"orders"})
     .select({
         "orders.id id",
         "orders.check_in_date check_in_date",
         "orders.check_out_date check_out_date",
-        "orders.total_price total_price",
         "orders.status status",
         "orders.created_at created_at",
         "rooms.cover_image cover_image"
@@ -28,7 +19,10 @@ local res = state.orm()
     .joins({
         {"JOIN rooms ON orders.roomid = rooms.id"}
     })
-    .where({query_str, query_arg})
+    .where({
+        "orders.userid = ? AND orders.deleted_at IS NULL AND orders.status = ?",
+        userInfo.id, ctx.req("status")
+    })
     .find({})
     .exec("base", false)
 
