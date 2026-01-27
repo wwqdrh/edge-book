@@ -21,6 +21,8 @@ modules:
     wx_publicfile: "{{.wx_publicfile}}"
     wx_privatefile: "{{.wx_privatefile}}"
 middlewares:
+  - id: local
+    type: local
   - id: jwt
     type: jwt
     opts:

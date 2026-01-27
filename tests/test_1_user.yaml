@@ -1,0 +1,91 @@
+- url: /api/v2/auth/password
+  method: post
+  args:
+    json@phone: "15348247596"
+    json@password: "991028"
+    json@code: "bd280dc9def725507c62736e15665166b63cc3de0d02092aafba93558c06a3a6"
+  expect:
+    json=@msg: 修改用户密码成功
+- url: /api/v2/auth/login
+  method: post
+  args:
+    json@phone: "15348247596"
+    json@password: "991028"
+  expect:
+    json=@msg: 登录成功
+  action:
+    json@accessToken: senv@admin_token
+# 注册一个普通用户
+- url: /api/v2/users/add
+  method: post
+  args:
+    json@name: testuser
+    json@phone: "14348247597"
+  expect:
+    json=@msg: 新增用户成功
+  action:
+    json@data.id: senv@user_id
+# 目前只有一个普通用户
+- url: /api/v2/users/list
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+  expect:
+    json@length@data: 1
+- url: /api/v2/users/total
+  method: get
+  args:
+    header@wanshouhotelt: genv@admin_token
+  expect:
+    json=@count: 1
+- url: /api/v2/users/update
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@id: genv@user_id
+    json@name: "updatename"
+    json@phone: "14348247598"
+  expect:
+    json=@msg: 修改信息成功
+  action:
+    senv@user_phone: "14348247598"
+- url: /api/v2/auth/login
+  method: post
+  args:
+    json@phone: genv@user_phone
+    json@password: "123456"
+  expect:
+    json=@msg: 登录成功
+  action:
+    json@accessToken: senv@token
+# 测试新增管理员以及删除管理员
+- url: /api/v2/auth/addadmin
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@phone: "178788879089"
+  expect:
+    json=@msg: 用户创建成功
+- url: /api/v2/auth/isadmin
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@phone: "178788879089"
+  expect:
+    json=@msg: 查询成功
+    json=@isadmin: true
+- url: /api/v2/auth/deladmin
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@phone: "178788879089"
+  expect:
+    json=@msg: 权限已改为普通用户
+- url: /api/v2/auth/isadmin
+  method: post
+  args:
+    header@wanshouhotelt: genv@admin_token
+    json@phone: "178788879089"
+  expect:
+    json=@msg: 查询成功
+    json=@isadmin: false

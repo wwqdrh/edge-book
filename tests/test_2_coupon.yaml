@@ -16,7 +16,7 @@
   args:
     header@wanshouhotelt: genv@admin_token
     json@coupon_id: 1
-    json@phone: "14348247597"
+    json@phone: genv@user_phone
     json@times: 1
     json@period_day: 30
   expect:

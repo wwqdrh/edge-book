@@ -1,8 +1,8 @@
--- description=新增用户
+-- description=新增普通用户账号
 -- request=[
 --   {"name": "json@name", "type": "string", "required": true},
 --   {"name": "json@phone", "type": "string", "required": true},
---   {"name": "json@password", "type": "string", "required": true}
+--   {"name": "json@password", "type": "string", "default": "123456"}
 -- ]
 
 local res = state.orm()
@@ -22,5 +22,8 @@ if res.err ~= nil then
 end
 
 ctx.json(200, {
-    msg="新增用户成功"
+    msg="新增用户成功",
+    data={
+        id=res.res.id
+    }
 })
